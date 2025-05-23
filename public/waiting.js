@@ -1,5 +1,5 @@
 async function routeTarget(e) {
-  const t = "https://tramtest-api.vwr-exv.click/target_routing",
+  const t = "https://hitenant-api.vwr-exv.click/target_routing",
     n = new URLSearchParams(window.location.search).get("token");
   if (n) {
     localStorage.setItem("token", n);
@@ -13,7 +13,7 @@ async function routeTarget(e) {
 async function getStatusWithRetry(e, t, n) {
   const l = localStorage.getItem("token");
   const o = JSON.stringify({
-      tenant_id: "2f3f569d7cbe4d26a0b3fe476b98a50e",
+      tenant_id: "4629a7153b7942609b27af9417648479",
       ...(t && { event_id: t }),
       ...(l && { vwr_token: n ? n : l }),
     }),
@@ -34,9 +34,9 @@ async function getStatusWithRetry(e, t, n) {
       switch (n) {
         case 0:
           window.location.href =
-            "https://tramtest.vwr-exv.click/waiting-room-site/prewaitingroom?event_id=" +
+            "https://hitenant.vwr-exv.click/waiting-room-site/prewaitingroom?event_id=" +
             t +
-            "&tenant_id=2f3f569d7cbe4d26a0b3fe476b98a50e&path=" +
+            "&tenant_id=4629a7153b7942609b27af9417648479&path=" +
             o +
             "&token=" +
             n +
@@ -45,9 +45,9 @@ async function getStatusWithRetry(e, t, n) {
           break;
         case 1:
           window.location.href =
-            "https://tramtest.vwr-exv.click/waiting-room-site/waitingroom?event_id=" +
+            "https://hitenant.vwr-exv.click/waiting-room-site/waitingroom?event_id=" +
             t +
-            "&tenant_id=2f3f569d7cbe4d26a0b3fe476b98a50e&path=" +
+            "&tenant_id=4629a7153b7942609b27af9417648479&path=" +
             o +
             "&token=" +
             n +
@@ -83,10 +83,10 @@ async function trackFormSubmission() {
     if (!localStorage.getItem("hasSubmitted")) {
       const e = window.location.href,
         t = JSON.stringify({
-          tenant_id: "2f3f569d7cbe4d26a0b3fe476b98a50e",
+          tenant_id: "4629a7153b7942609b27af9417648479",
           event_id: sessionStorage.getItem("event_id"),
         }),
-        n = await fetch("https://tramtest-api.vwr-exv.click/checkout", {
+        n = await fetch("https://hitenant-api.vwr-exv.click/checkout", {
           method: "POST",
           headers: { "Content-Type": "application/json", Origin: e },
           body: t,
@@ -106,9 +106,9 @@ window.onload = function () {
 function initializeWaiting() {
   const u = navigator.userAgent;
   const e = window.location.href,
-    t = "https://tramtest-api.vwr-exv.click/trigger_checking",
+    t = "https://hitenant-api.vwr-exv.click/trigger_checking",
     n = JSON.stringify({
-      tenant_id: "2f3f569d7cbe4d26a0b3fe476b98a50e",
+      tenant_id: "4629a7153b7942609b27af9417648479",
       url: e,
       headers: { UserAgent: u },
     });
